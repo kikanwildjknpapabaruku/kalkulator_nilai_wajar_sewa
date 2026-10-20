@@ -1,0 +1,86 @@
+/* Layout: dua panel. Kiri berisi data masukan berurutan seperti alur KKAP; kanan berisi hasil
+   langsung (nilai 5 tahun, tabel 1 sampai 5 tahun, proyeksi). Tab kedua memuat nilai tanah.
+   Token warna: tema terang di :root, tema gelap lewat preferensi sistem atau tombol tema. */
+:root {
+  --bg: #eef2f4;
+  --surface: #ffffff;
+  --surface-2: #e7edf0;
+  --surface-3: #f6f8f9;
+  --ink: #13212b;
+  --ink-2: #44545f;
+  --ink-3: #66747f;
+  --line: #d3dce1;
+  --line-2: #e4eaed;
+  --accent: #0b5f73;
+  --accent-ink: #ffffff;
+  --accent-soft: #d9eaef;
+  --good: #1a7a3c;
+  --good-bg: #e1f3e7;
+  --warn: #8f5400;
+  --warn-bg: #fff2d6;
+  --crit: #b3261e;
+  --crit-bg: #fde8e6;
+  --s1: #2a78d6;
+  --s2: #eb6834;
+  --backdrop: rgba(10, 22, 30, 0.45);
+  --shadow: 0 10px 40px rgba(10, 22, 30, 0.18);
+
+  --font-body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-num: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --radius: 8px;
+  --radius-sm: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0e1418;
+    --surface: #161e24;
+    --surface-2: #1e2830;
+    --surface-3: #131a1f;
+    --ink: #e7edf1;
+    --ink-2: #b0bec8;
+    --ink-3: #8796a1;
+    --line: #2a3741;
+    --line-2: #222d35;
+    --accent: #52b6cc;
+    --accent-ink: #04222a;
+    --accent-soft: #12303a;
+    --good: #5ec585;
+    --good-bg: #13301f;
+    --warn: #e3a54a;
+    --warn-bg: #33270f;
+    --crit: #f08a82;
+    --crit-bg: #3a1c1a;
+    --s1: #3987e5;
+    --s2: #d95926;
+    --backdrop: rgba(0, 0, 0, 0.6);
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e1418;
+  --surface: #161e24;
+  --surface-2: #1e2830;
+  --surface-3: #131a1f;
+  --ink: #e7edf1;
+  --ink-2: #b0bec8;
+  --ink-3: #8796a1;
+  --line: #2a3741;
+  --line-2: #222d35;
+  --accent: #52b6cc;
+  --accent-ink: #04222a;
+  --accent-soft: #12303a;
+  --good: #5ec585;
+  --good-bg: #13301f;
+  --warn: #e3a54a;
+  --warn-bg: #33270f;
+  --crit: #f08a82;
+  --crit-bg: #3a1c1a;
+  --s1: #3987e5;
+  --s2: #d95926;
+  --backdrop: rgba(0, 0, 0, 0.6);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
