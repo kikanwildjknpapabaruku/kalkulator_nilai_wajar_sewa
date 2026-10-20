@@ -44,6 +44,19 @@ details.card > summary::-webkit-details-marker {
   display: none;
 }
 
+/* Baris judul/label dengan tanda tanya; penjelasannya turun ke baris sendiri */
+.hl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 6px;
+  min-width: 0;
+}
+/* sisakan ruang untuk tombol (?) di sebelah teks, agar tidak turun ke baris sendiri */
+.hl > :first-child {
+  max-width: calc(100% - 26px);
+}
+
 /* Tombol */
 .btn {
   display: inline-flex;

@@ -5,6 +5,8 @@ import { fmtRp, fmtDec, fmtPct } from '@/core/format.js';
 import NumberField from '@/components/common/NumberField.vue';
 import SegmentedControl from '@/components/common/SegmentedControl.vue';
 import CollapsibleSection from '@/components/common/CollapsibleSection.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
+import FieldLabel from '@/components/common/FieldLabel.vue';
 
 const data = toRef(store, 'data');
 const JENIS = [
@@ -36,7 +38,7 @@ const MODES = [
       </div>
 
       <div class="sub">
-        <h3>Nilai tanah</h3>
+        <div class="hl"><h3>Nilai tanah</h3><HelpTip term="pendekatan-pasar" /></div>
         <SegmentedControl v-model="data.mode" :options="MODES" name="mode" label="Sumber nilai tanah" />
         <div v-if="data.mode === 'langsung'" class="field">
           <label for="nilaiLangsung">Nilai tanah objek penilaian</label>
@@ -55,7 +57,7 @@ const MODES = [
       </div>
 
       <div v-if="data.objek.jenis === 'tanah_bangunan'" class="sub">
-        <h3>Bangunan</h3>
+        <div class="hl"><h3>Bangunan</h3><HelpTip term="nilai-bangunan" /></div>
         <div class="field">
           <label for="bNilai">Nilai bangunan</label>
           <NumberField id="bNilai" v-model="data.bangunan.nilai" kind="rp" prefix="Rp" />
@@ -67,11 +69,11 @@ const MODES = [
             <NumberField id="bLuas" v-model="data.bangunan.luas" kind="num" suffix="m²" />
           </div>
           <div class="field">
-            <label for="bUE">Umur ekonomis</label>
+            <FieldLabel for="bUE" text="Umur ekonomis" term="umur-ekonomis" />
             <NumberField id="bUE" v-model="data.bangunan.umurEkonomis" kind="num" suffix="tahun" />
           </div>
           <div class="field">
-            <label for="bEF">Umur efektif</label>
+            <FieldLabel for="bEF" text="Umur efektif" term="umur-efektif" />
             <NumberField id="bEF" v-model="data.bangunan.umurEfektif" kind="num" suffix="tahun" />
           </div>
         </div>
@@ -80,11 +82,11 @@ const MODES = [
           <span class="chip">Recapture <b>{{ fmtPct(result.rent.rc) }}</b></span>
           <span v-if="result.building && result.building.luas > 0" class="chip">Nilai bangunan per m² <b>{{ fmtRp(result.building.perM2) }}</b></span>
         </div>
-        <span class="hint">Recapture = 1 ÷ (umur ekonomis − umur efektif), diterapkan ke seluruh nilai properti sesuai rumus KKAP.</span>
+        <p class="hint">Recapture = 1 ÷ (umur ekonomis − umur efektif), diterapkan ke seluruh nilai properti sesuai rumus KKAP. <HelpTip inline term="recapture" /></p>
       </div>
 
       <div class="total">
-        <div class="lbl">Nilai properti objek penilaian</div>
+        <div class="hl"><div class="lbl">Nilai properti objek penilaian</div><HelpTip term="nilai-properti" /></div>
         <b>{{ fmtRp(result.value) }}</b>
         <div v-if="result.building" class="hint">Nilai tanah {{ fmtRp(result.landValue) }} + nilai bangunan {{ fmtRp(result.building.nilai) }}</div>
         <div v-else class="hint">Sama dengan nilai tanah</div>

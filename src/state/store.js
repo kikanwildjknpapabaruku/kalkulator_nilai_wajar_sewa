@@ -44,7 +44,8 @@ function loadReport() {
 export const store = reactive({
   data: loadData() || createExampleState(),
   report: loadReport(),
-  ui: { tab: 'sewa', detailTab: 'proyeksi', tenor: 5, pdfOpen: false }
+  // glossaryTerm: istilah yang harus dibuka di tab Petunjuk; returnTab: tab asal untuk tombol "Kembali"
+  ui: { tab: 'sewa', detailTab: 'proyeksi', tenor: 5, pdfOpen: false, glossaryTerm: null, returnTab: null }
 });
 
 export const result = computed(() => computeValuation(store.data));
@@ -90,5 +91,14 @@ export function selectTenor(n) {
 
 export function setTab(tab) {
   store.ui.tab = tab;
+  store.ui.returnTab = null;
   if (typeof window !== 'undefined') window.scrollTo({ top: 0 });
+}
+
+/** Buka penjelasan lengkap sebuah istilah di tab Petunjuk, dengan jalan kembali ke tab asal */
+export function openGlossary(termId) {
+  const from = store.ui.tab === 'petunjuk' ? store.ui.returnTab : store.ui.tab;
+  setTab('petunjuk');
+  store.ui.returnTab = from;
+  store.ui.glossaryTerm = termId;
 }

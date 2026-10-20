@@ -6,6 +6,7 @@ import { suggestedWeightsPercent } from '@/core/land.js';
 import LandTable from './LandTable.vue';
 import ScoreGuide from './ScoreGuide.vue';
 import ExpandControls from '@/components/common/ExpandControls.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
 import { GROUPS } from '@/state/ui.js';
 
 const land = computed(() => result.value.land);
@@ -37,7 +38,7 @@ function applySuggested() {
 
   <section class="card">
     <div class="row-between">
-      <h2>Perhitungan nilai tanah</h2>
+      <h2>Perhitungan nilai tanah <HelpTip term="pendekatan-pasar" /></h2>
       <span class="hint">Pendekatan pembandingan data pasar, ranking analysis, 3 data pembanding</span>
     </div>
     <ExpandControls :ids="GROUPS.tanah" label="4 tahap. Saat ditutup, baris hasil tiap tahap tetap tampil." class="land-ctl" />
@@ -48,9 +49,10 @@ function applySuggested() {
       <div class="stat"><div class="k">Total nilai wajar tanah</div><div class="v">{{ fmtRp(land.total) }}</div></div>
       <div class="stat"><div class="k">Pembulatan ke ribuan</div><div class="v">{{ fmtRp(land.rounded) }}</div></div>
       <div class="stat center">
-        <div class="k">
+        <div class="k hl">
           Bobot pembanding yang dipakai: {{ fmtDec(land.wSumComp) }}%
           <span v-if="!weightsOk" class="chip warn">harus 100%</span>
+          <HelpTip term="bobot-pembanding" />
         </div>
         <button type="button" class="btn sm" @click="applySuggested">Pakai bobot saran</button>
       </div>

@@ -1,6 +1,7 @@
 <script setup>
 import { CRIT, CRIT_ORDER, LEVELS } from '@/core/constants.js';
 import CollapsibleSection from '@/components/common/CollapsibleSection.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
 </script>
 
 <template>
@@ -18,6 +19,7 @@ import CollapsibleSection from '@/components/common/CollapsibleSection.vue';
     <p class="fn">
       Penyesuaian = (skor objek penilaian − skor pembanding) ÷ 5 × bobot kriteria. Hasilnya positif bila objek penilaian lebih baik dari pembanding.
       Skor luas tanah dihitung otomatis dari rentang luas.
+      <HelpTip inline term="ranking" />
     </p>
   </CollapsibleSection>
 </template>

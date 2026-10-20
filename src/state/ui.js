@@ -44,5 +44,6 @@ export const GROUPS = {
   input: ['in-objek', 'in-kenaikan', 'in-riskfree', 'in-pembanding'],
   hasil: ['out-tabel', 'out-rincian'],
   langkah: ['step-0', 'step-1', 'step-2', 'step-3', 'step-4', 'step-5', 'step-6'],
-  tanah: ['land-g1', 'land-g2', 'land-g3', 'land-g4']
+  tanah: ['land-g1', 'land-g2', 'land-g3', 'land-g4'],
+  petunjuk: ['guide-cara', 'guide-alur', 'guide-baca', 'guide-faq', 'guide-istilah']
 };

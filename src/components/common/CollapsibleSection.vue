@@ -37,6 +37,10 @@ const bodyId = `${props.id}-body`;
 </template>
 
 <style scoped>
+.coll {
+  /* ruang untuk bilah ringkas yang menempel di atas pada layar kecil */
+  scroll-margin-top: 56px;
+}
 .coll-h {
   display: block !important;
   margin: 0;

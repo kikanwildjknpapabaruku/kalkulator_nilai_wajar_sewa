@@ -5,9 +5,20 @@ import { buildSteps } from '@/core/steps.js';
 import { isOpen, toggle, GROUPS } from '@/state/ui.js';
 import Icon from '@/components/common/Icon.vue';
 import ExpandControls from '@/components/common/ExpandControls.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
 
 const steps = computed(() => buildSteps(store.data, result.value, store.ui.tenor));
 const idOf = (i) => `step-${i}`;
+// Istilah yang dijelaskan pada tiap tahap (urutan sama dengan buildSteps)
+const STEP_TERMS = [
+  ['nilai-properti'],
+  ['kapitalisasi', 'risk-free', 'recapture'],
+  ['arus-kas'],
+  ['diskonto'],
+  ['kenaikan-sewa'],
+  ['nilai-kini', 'faktor-diskonto'],
+  ['pembulatan']
+];
 </script>
 
 <template>
@@ -33,6 +44,7 @@ const idOf = (i) => `step-${i}`;
           <div class="formula">{{ st.formula }}</div>
           <div class="formula res">{{ st.result }}</div>
           <p v-if="st.note">{{ st.note }}</p>
+          <div class="hl tips"><span class="hint">Apa artinya?</span><HelpTip v-for="t in STEP_TERMS[i]" :key="t" :term="t" /></div>
         </div>
       </li>
     </ol>
@@ -110,6 +122,9 @@ li + li {
   font-size: 12.5px;
   color: var(--ink-2);
   overflow-wrap: anywhere;
+}
+.tips {
+  margin-top: 6px;
 }
 .formula.res {
   color: var(--ink);

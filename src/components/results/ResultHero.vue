@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import { result } from '@/state/store.js';
 import { fmtRp } from '@/core/format.js';
 import { terbilangRupiah } from '@/core/terbilang.js';
+import HelpTip from '@/components/common/HelpTip.vue';
 
 const r = computed(() => {
   const res = result.value;
@@ -21,7 +22,7 @@ const r = computed(() => {
 
 <template>
   <section class="card hero" aria-labelledby="hero-l">
-    <p id="hero-l" class="eyebrow">Nilai wajar sewa 5 tahun, dibayar sekaligus di muka</p>
+    <p id="hero-l" class="eyebrow">Nilai wajar sewa 5 tahun, dibayar sekaligus di muka <HelpTip inline term="nilai-wajar-sewa" /><HelpTip inline term="dibayar-dimuka" /></p>
     <p class="big">{{ r ? r.value : 'Rp 0' }}</p>
     <p class="words">{{ r ? r.words : 'Isi nilai properti dan risk free tenor 5 tahun untuk melihat nilai wajar sewa.' }}</p>
     <dl class="kpis">

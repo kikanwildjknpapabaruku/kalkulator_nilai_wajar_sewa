@@ -6,7 +6,8 @@ import ThemeToggle from '@/components/common/ThemeToggle.vue';
 
 const TABS = [
   { id: 'sewa', label: 'Sewa (DCF)' },
-  { id: 'tanah', label: 'Nilai tanah' }
+  { id: 'tanah', label: 'Nilai tanah' },
+  { id: 'petunjuk', label: 'Petunjuk dan istilah' }
 ];
 
 const armed = ref(false);

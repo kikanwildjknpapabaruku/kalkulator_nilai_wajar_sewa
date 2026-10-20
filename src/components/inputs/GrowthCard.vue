@@ -6,6 +6,7 @@ import { growthAverage, growthUsed } from '@/core/rent.js';
 import NumberField from '@/components/common/NumberField.vue';
 import SegmentedControl from '@/components/common/SegmentedControl.vue';
 import CollapsibleSection from '@/components/common/CollapsibleSection.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
 
 const data = toRef(store, 'data');
 const MODES = [
@@ -25,7 +26,7 @@ function removeRow(i) {
 
 <template>
   <CollapsibleSection id="in-kenaikan" title="2. Tingkat kenaikan sewa" :summary="summary">
-    <p class="lead">Pertumbuhan sewa per tahun untuk memproyeksikan arus kas.</p>
+    <p class="lead">Pertumbuhan sewa per tahun untuk memproyeksikan arus kas. <HelpTip inline term="kenaikan-sewa" /></p>
     <div class="stack">
       <SegmentedControl v-model="data.growth.mode" :options="MODES" name="gmode" label="Cara menentukan kenaikan sewa" />
 

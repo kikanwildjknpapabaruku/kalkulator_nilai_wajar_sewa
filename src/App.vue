@@ -11,6 +11,7 @@ import ResultHero from '@/components/results/ResultHero.vue';
 import ScenarioTable from '@/components/results/ScenarioTable.vue';
 import DetailPanel from '@/components/results/DetailPanel.vue';
 import LandModule from '@/components/land/LandModule.vue';
+import GuideTab from '@/components/guide/GuideTab.vue';
 import PdfDialog from '@/components/pdf/PdfDialog.vue';
 import ExpandControls from '@/components/common/ExpandControls.vue';
 import { GROUPS } from '@/state/ui.js';
@@ -46,6 +47,10 @@ import { GROUPS } from '@/state/ui.js';
 
   <main v-show="store.ui.tab === 'tanah'" id="tab-tanah" class="wrap sec" role="tabpanel" aria-labelledby="tabbtn-tanah">
     <LandModule />
+  </main>
+
+  <main v-show="store.ui.tab === 'petunjuk'" id="tab-petunjuk" class="wrap sec" role="tabpanel" aria-labelledby="tabbtn-petunjuk">
+    <GuideTab />
   </main>
 
   <footer class="wrap foot">

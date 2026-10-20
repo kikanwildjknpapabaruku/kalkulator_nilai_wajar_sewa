@@ -5,6 +5,7 @@ import { fmtDec } from '@/core/format.js';
 import { TENORS } from '@/core/constants.js';
 import NumberField from '@/components/common/NumberField.vue';
 import CollapsibleSection from '@/components/common/CollapsibleSection.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
 
 const data = toRef(store, 'data');
 const summary = computed(() => {
@@ -23,7 +24,7 @@ function onSameChange(e) {
 
 <template>
   <CollapsibleSection id="in-riskfree" title="3. Risk free dan recapture" :summary="summary">
-    <p class="lead">Imbal hasil investasi bebas risiko sesuai jangka waktu sewa.</p>
+    <p class="lead">Imbal hasil investasi bebas risiko sesuai jangka waktu sewa. <HelpTip inline term="risk-free" /></p>
     <div class="stack">
       <label class="chk">
         <input type="checkbox" :checked="data.rf.same" @change="onSameChange" />
@@ -49,9 +50,10 @@ function onSameChange(e) {
       <div class="chips">
         <span class="chip">Recapture rate <b>{{ fmtDec(result.rent.rc * 100, 2, 4) }}%</b></span>
       </div>
-      <span class="hint">
+      <p class="hint">
         {{ data.objek.jenis === 'tanah_bangunan' ? 'Recapture dihitung dari sisa umur ekonomis bangunan di bagian 1.' : 'Objek berupa tanah, recapture 0%. Pilih Tanah dan bangunan di bagian 1 untuk menghitung recapture.' }}
-      </span>
+        <HelpTip inline term="recapture" />
+      </p>
     </div>
   </CollapsibleSection>
 </template>

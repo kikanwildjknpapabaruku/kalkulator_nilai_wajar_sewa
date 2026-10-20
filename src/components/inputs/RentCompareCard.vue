@@ -4,6 +4,7 @@ import { store, result } from '@/state/store.js';
 import { fmtInt } from '@/core/format.js';
 import NumberField from '@/components/common/NumberField.vue';
 import CollapsibleSection from '@/components/common/CollapsibleSection.vue';
+import HelpTip from '@/components/common/HelpTip.vue';
 
 const data = toRef(store, 'data');
 const rows = computed(() => data.value.rent.filter((r) => (r.luas || 0) > 0 && (r.sewa || 0) > 0));
@@ -26,7 +27,7 @@ function remove(i) {
 <template>
   <CollapsibleSection id="in-pembanding" title="4. Sewa pembanding (uji kewajaran)" :summary="summary" :default-open="false">
     <div class="stack">
-      <p class="lead">Opsional. Bandingkan hasil penilaian dengan sewa properti sejenis.</p>
+      <p class="lead">Opsional. Bandingkan hasil penilaian dengan sewa properti sejenis. <HelpTip inline term="uji-kewajaran" /></p>
       <p v-if="!data.rent.length" class="hint">Belum ada pembanding.</p>
       <div v-for="(r, i) in data.rent" :key="i" class="rrow">
         <div class="grid">
